@@ -1,0 +1,44 @@
+name: Build Sepehr Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Build Windows EXE
+        run: npm run dist:win
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sepehr-Windows-EXE
+          path: |
+            release/*.exe
+            release/win-unpacked/**
+          if-no-files-found: error
+          retention-days: 14
