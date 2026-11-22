@@ -1,0 +1,37 @@
+appId: ir.sepehrinstitute.desktop
+productName: مدیریت آموزشگاه سپهر
+copyright: Copyright © 2026 Sepehr Institute
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - data/institute-db.json
+  - build/icon.png
+  - build/icon.ico
+  - package.json
+asarUnpack:
+  - "**/*.node"
+  - "node_modules/better-sqlite3/**"
+npmRebuild: true
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: dir
+      arch:
+        - x64
+  executableName: Sepehr
+  icon: build/icon.ico
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: مدیریت آموزشگاه سپهر
+  artifactName: Sepehr-Setup.exe
+  deleteAppDataOnUninstall: false
+  unicode: true

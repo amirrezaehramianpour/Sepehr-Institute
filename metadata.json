@@ -1,0 +1,6 @@
+{
+  "name": "نرم‌افزار جامع مدیریت آموزشگاه سپهر",
+  "description": "سامانه رومیزی یکپارچه مدیریت ثبت‌نام هنرجویان، برنامه‌ریزی هوشمند کلاس‌ها، حسابداری شهریه، کارنامه الکترونیکی و تحلیل داده آموزشگاه",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
